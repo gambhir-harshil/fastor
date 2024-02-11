@@ -56,25 +56,26 @@ const Register = () => {
       "https://staging.fastor.in/v1/pwa/user/login",
       { phone, otp, dial_code: "+91" }
     );
+    localStorage.setItem("user", JSON.stringify(res.data.data));
     setUser(res.data.data);
     navigate("/");
   };
 
   return (
-    <div className="flex flex-col justify-center items-start h-screen px-6 gap-1 md:items-center">
+    <div className="flex flex-col items-start justify-center h-screen gap-1 px-6 md:items-center">
       <h1 className="text-2xl font-bold">OTP Verification</h1>
-      <p className="text-gray-400 font-semibold">
+      <p className="font-semibold text-gray-400">
         Enter the verification code we just sent on your Mobile Number
       </p>
       <form onSubmit={handleSubmit(onSubmit)} action="submit" className="mt-8">
-        <div className="flex justify-center items-center space-x-2">
+        <div className="flex items-center justify-center space-x-2">
           {otp.map((digit, index) => (
             <input
               key={index}
               ref={inputRefs[index]}
               type="text"
               maxLength={1}
-              className="w-12 h-12 text-center border rounded focus:outline-none focus:border-blue-500 bg-gray-200 text-gray-400 border-gray-400"
+              className="w-12 h-12 text-center text-gray-400 bg-gray-200 border border-gray-400 rounded focus:outline-none focus:border-blue-500"
               value={digit}
               onChange={(e) => handleInputChange(index, e)}
               onKeyDown={(e) => handleBackspace(index, e)}
@@ -83,14 +84,14 @@ const Register = () => {
         </div>
         <button
           type="submit"
-          className="bg-red-500 w-full px-8 py-4 rounded-md text-white font-semibold mt-4"
+          className="w-full px-8 py-4 mt-4 font-semibold text-white bg-red-500 rounded-md"
         >
           Verify
         </button>
       </form>
       <p className="mt-2 text-sm">
         Did not receive the code?{" "}
-        <span className="text-blue-500 font-semibold">Resend</span>
+        <span className="font-semibold text-blue-500">Resend</span>
       </p>
     </div>
   );

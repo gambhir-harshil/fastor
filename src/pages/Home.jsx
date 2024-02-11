@@ -2,6 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/auth";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from "../components/Navbar";
+import Header from "../components/Header";
+import Slider from "../components/Slider";
 
 const Home = () => {
   const { user } = useAuth();
@@ -31,7 +34,18 @@ const Home = () => {
     }
   }, [user]);
 
-  return <>Home</>;
+  console.log(restaurants);
+  console.log(user);
+
+  return (
+    <>
+      <Navbar />
+      <div className="flex flex-col px-5">
+        <Header name={user.user_name} />
+        <Slider restaurants={restaurants} />
+      </div>
+    </>
+  );
 };
 
 export default Home;
