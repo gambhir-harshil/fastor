@@ -2,9 +2,13 @@ import { useRef, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../context/auth";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const location = useLocation();
+  const { setUser } = useAuth();
+  const navigate = useNavigate();
   const phone = location.state;
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const inputRefs = [
@@ -52,7 +56,8 @@ const Register = () => {
       "https://staging.fastor.in/v1/pwa/user/login",
       { phone, otp, dial_code: "+91" }
     );
-    console.log(res.data);
+    setUser(res.data.data);
+    navigate("/");
   };
 
   return (
