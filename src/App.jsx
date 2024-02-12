@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { AuthProvider } from "./context/auth";
+import Restaurant from "./pages/Restaurant";
 const App = () => {
   return (
     <AuthProvider>
@@ -10,6 +11,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/:id" element={<Restaurant />} />
       </Routes>
     </AuthProvider>
   );

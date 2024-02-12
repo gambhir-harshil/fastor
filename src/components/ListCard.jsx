@@ -1,14 +1,19 @@
 import { Star } from "lucide-react";
+import { Link } from "react-router-dom";
 const ListCard = ({ restaurant }) => {
   return (
     <div className="flex items-center gap-8">
-      <div className="h-[130px] w-[130px]">
+      <Link
+        to={`/${restaurant.restaurant_id}`}
+        state={restaurant}
+        className="h-[130px] w-[130px]"
+      >
         <img
           src={restaurant.images[0].url}
           alt={restaurant.restaurant_name}
           className="object-cover w-full h-full rounded-md"
         />
-      </div>
+      </Link>
       <div className="flex flex-col">
         <h4 className="text-lg font-bold">{restaurant.restaurant_name}</h4>
         <h3 className="text-sm font-semibold text-gray-400">
@@ -32,7 +37,7 @@ const ListCard = ({ restaurant }) => {
           </div>
           <div className="flex flex-col">
             <span className="flex items-center text-sm font-bold">
-              $ {restaurant.avg_cost_for_two}
+              {restaurant.currency.symbol} {restaurant.avg_cost_for_two}
             </span>
             <span className="text-xs font-semibold text-gray-400">
               Cost for two
