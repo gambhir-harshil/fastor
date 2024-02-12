@@ -1,7 +1,7 @@
 const SliderCard = ({ restaurant }) => {
   return (
     <div className="flex flex-col">
-      <div className="h-[120px] w-[120px] rounded-t-xl overflow-hidden shadow-2xl">
+      <div className="h-[120px] w-[120px] md:h-[160px] md:w-[160px] rounded-t-xl overflow-hidden shadow-2xl">
         <img
           src={restaurant.images[0].url}
           alt={restaurant.restaurant_name}

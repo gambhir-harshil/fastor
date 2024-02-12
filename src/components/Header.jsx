@@ -8,7 +8,7 @@ const Header = ({ name }) => {
         </span>
         <span className="font-bold">Let&apos;s explore this evening</span>
       </div>
-      <div className="flex-[50%] flex items-center justify-between pl-6">
+      <div className="flex-[50%] flex items-center justify-between pl-6 md:justify-center md:gap-16">
         <div className="flex flex-col">
           <div className="flex items-center justify-center w-12 h-12 bg-orange-400 rounded-lg shadow-xl">
             <BadgeDollarSign className="text-white" size={32} />
