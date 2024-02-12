@@ -1,6 +1,12 @@
+import { Link } from "react-router-dom";
+
 const SliderCard = ({ restaurant }) => {
   return (
-    <div className="flex flex-col">
+    <Link
+      to={`/${restaurant.restaurant_id}`}
+      state={restaurant}
+      className="flex flex-col"
+    >
       <div className="h-[120px] w-[120px] md:h-[160px] md:w-[160px] rounded-t-xl overflow-hidden shadow-2xl">
         <img
           src={restaurant.images[0].url}
@@ -14,7 +20,7 @@ const SliderCard = ({ restaurant }) => {
           {restaurant.location?.location_address_2}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 
