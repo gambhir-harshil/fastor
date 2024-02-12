@@ -41,11 +41,13 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col px-5">
-        <Header name={user.user_name} />
-        <Slider restaurants={restaurants} />
-        <List restaurants={restaurants} />
-      </div>
+      {user && (
+        <div className="flex flex-col px-5">
+          <Header name={user.user_name} />
+          <Slider restaurants={restaurants} />
+          <List restaurants={restaurants} />
+        </div>
+      )}
     </>
   );
 };
