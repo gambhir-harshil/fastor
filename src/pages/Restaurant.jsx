@@ -1,9 +1,8 @@
-import { useLocation } from "react-router-dom";
-import { Star } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Star, ChevronLeft } from "lucide-react";
 const Restaurant = () => {
   const location = useLocation();
   const restaurant = location.state;
-  console.log(restaurant);
   return (
     <div className="relative flex flex-col h-screen">
       <div className="h-[50%] w-full">
@@ -34,6 +33,12 @@ const Restaurant = () => {
           chocolate chip cream and a layer of dark chocolate ganache
         </p>
       </div>
+      <Link
+        to={"/"}
+        className="absolute flex items-center justify-center w-10 h-10 text-white rounded-full top-8 left-4 bg-black/50"
+      >
+        <ChevronLeft size={32} />
+      </Link>
     </div>
   );
 };
