@@ -5,6 +5,7 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import Slider from "../components/Slider";
+import List from "../components/List";
 
 const Home = () => {
   const { user } = useAuth();
@@ -43,6 +44,7 @@ const Home = () => {
       <div className="flex flex-col px-5">
         <Header name={user.user_name} />
         <Slider restaurants={restaurants} />
+        <List restaurants={restaurants} />
       </div>
     </>
   );

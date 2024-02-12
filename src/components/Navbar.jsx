@@ -1,7 +1,7 @@
 import { MapPin } from "lucide-react";
 const Navbar = () => {
   return (
-    <div className="w-full h-[60px] shadow-lg sticky top-0 px-8">
+    <div className="w-full h-[60px] shadow-lg sticky top-0 px-8 bg-white">
       <div className="flex flex-col mt-8">
         <h6 className="font-bold text-gray-400">
           <span className="flex items-center">
